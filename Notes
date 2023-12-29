@@ -1,0 +1,30 @@
+# Day 1 (12/18)
+
+- Installation mern tools links and notes:
+  https://docs.google.com/document/d/1MPHHxZ2admPWSWCEJCDp78OyrC1XcTHWEkXB0XZAWoA/edit
+
+i) front-end: HTML, CSS, Reactjs.
+ii) back-end: Expressjs(handles data from front end and set it to database, hashing, etc)
+iii) database: Mongo DB
+
+# Day 2 (12/19)
+
+Data:
+“String”, Number, Boolean
+
+```jsx
+console.log(1 + 1);
+console.log("1" + "1");
+console.log(1 + 1 + "3" + 1 + 1);
+// 2311
+```
+
+# Day 3 (12/20)
+
+Js is Single-threaded, Synchronous, Blocking, and Dynamic Language.
+
+# Day 9 (12/28)
+
+{Some} returns true if any one is true
+{Every} returns true if all are true.
+if one statement there is no need of curly bracket and write return
