@@ -117,3 +117,10 @@ console.log(
 let data15 = ["smoking", "drinking", "biting nails"];
 // check whether person have smoking habit
 console.log(data15.some((value) => value === "smoking"));
+
+//test
+var name = "xitiz";
+(function () {
+  console.log(name);
+  var name = "xitiz2";
+})();
