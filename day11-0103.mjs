@@ -36,9 +36,9 @@
 // console.log(b3);
 // console.log(b4);
 
-let obj1 = { name: "xitiz", age: 23 };
-let obj2 = { address: "baneshwor" };
-let obj3 = { isMarried: false, ...obj1, ...obj2 };
-console.log(obj3);
-console.log(Object.keys(obj1));
-console.log(Object.values(obj2));
+// let obj1 = { name: "xitiz", age: 23 };
+// let obj2 = { address: "baneshwor" };
+// let obj3 = { isMarried: false, ...obj1, ...obj2 };
+// console.log(obj3);
+// console.log(Object.keys(obj1));
+// console.log(Object.values(obj2));
