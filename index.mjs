@@ -103,3 +103,13 @@ function avg() {
   ).toFixed(2)}`;
   alert(((Number(a) + Number(b) + Number(b)) / 3).toFixed(2));
 }
+
+// make a function , pass one input as  ["smoking", "drinking", "biting nails"] and the function must return true if the given input has smoking field
+export function smoke(a, b, c) {
+  // if (c === "smoking" || b === "smoking" || a === "smoking") {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+  return c === "smoking" || b === "smoking" || a === "smoking";
+}
