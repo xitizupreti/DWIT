@@ -1,0 +1,14 @@
+/*
+It means frontend makes request (post,get,delete,patch)to backend &
+backend gives response according to request this is called making API.
+
+At package.json{
+    "type":"module" // .js supports import and export
+}
+
+Make backend application using Express attached port to that application.
+
+To make API we have two step define router use that route to the main file.
+
+At import if you got ./path use .js extension.
+*/
