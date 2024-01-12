@@ -4,11 +4,17 @@ import traineesRouter from "./src/route/traineesRouter.js";
 
 let expressApp = Express();
 
-// expressApp.get("/", function (req, res) {
-//   res.send("Test on local");
-// });
+expressApp.get("/", function (req, res) {
+  res.send("Test on local");
+});
 
+//Application MiddleWare
+expressApp.use((req, res, next) => {
+  console.log("Application Middleware");
+  next();
+});
 expressApp.use(json());
+//Router MiddleWare
 expressApp.use("/bike", firstRouter);
 expressApp.use("/traineesRouter", traineesRouter);
 

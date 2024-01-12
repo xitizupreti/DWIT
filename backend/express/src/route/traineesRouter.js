@@ -4,13 +4,21 @@ let traineesRouter = Router();
 traineesRouter
   .route("/")
   .post((req, res, next) => {
-    res.json({ success: true, message: "post traine" });
+    res.json({ success: true, message: "post trainee" });
   })
-  .get((req, res, next) => {
-    res.json({ success: true, message: "get traine" });
-  })
+  .get(
+    (req, res, next) => {
+      // res.json({ success: true, message: "get trainee 1" });
+      console.log("1 next");
+      next();
+    },
+    (req, res, next) => {
+      res.json({ success: true, message: "get trainee 2" });
+      console.log("2 next");
+    }
+  )
   .delete((req, res, next) => {
-    res.json({ success: true, message: "del traine" });
+    res.json({ success: true, message: "del trainee" });
   });
 
 export default traineesRouter;

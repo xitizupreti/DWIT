@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Day 1 (12/18)
 
 - Installation mern tools links and notes:
@@ -29,7 +28,7 @@ Js is Single-threaded, Synchronous, Blocking, and Dynamic Language.
 {Some} returns true if any one is true
 {Every} returns true if all are true.
 if one statement there is no need of curly bracket and write return
-=======
+
 # Day 1 (12/18)
 
 - Installation mern tools links and notes:
@@ -60,4 +59,3 @@ Js is Single-threaded, Synchronous, Blocking, and Dynamic Language.
 {Some} returns true if any one is true
 {Every} returns true if all are true.
 if one statement there is no need of curly bracket and write return
->>>>>>> 524279005f239d4e0a2ca2d9b4b1dfc882fbfca4

@@ -11,4 +11,16 @@ Make backend application using Express attached port to that application.
 To make API we have two step define router use that route to the main file.
 
 At import if you got ./path use .js extension.
+
+:any path
+
+We can send data in three ways body, params, query.
+
+Middleware are the function which has req,res,next.
+next() is used to trigger next Middleware.
+
+1st Way:
+Route Middleware
+Application Middleware
+
 */
