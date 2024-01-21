@@ -23,4 +23,11 @@ next() is used to trigger next Middleware.
 Route Middleware
 Application Middleware
 
+await in front of promise function and also put async in front of function.
+
+//schema
+//model
+//controller
+//route
+//index
 */

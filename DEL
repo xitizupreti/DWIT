@@ -1,0 +1,77 @@
+data :{
+    fullName:"nitan",
+    address:"gagalphedi",
+    phoneNumber:9849468999,
+    email:"nitanthapa425@gmail.com"
+}
+[2:41 PM] contacts (edited)
+[2:42 PM] //schema
+//model
+//controller
+//route
+//index
+
+
+
+
+
+{
+  "name": "c",
+  "age": 33,
+  "password":"Password@123",
+  "phoneNumber": 1111111111,
+  "roll": 2,
+  "isMarried": false,
+  "spouseName": "lkjl",
+  "email": "abc@gmai",
+  "gender": "male",
+  "dob": "2019-2-2",
+  "location": {
+      "country": "nepal",
+      "exactLocation": "gagalphedi"
+  },
+  "favTeacher": [
+      "a",
+      "b",
+      "c",
+      "nitan"
+  ],
+
+
+
+  "favSubject": [
+      {
+          "bookName": "javascript",
+          "bookAuthor": "nitan"
+      },
+      {
+          "bookName": "b",
+          "bookAuthor": "b"
+      }
+  ],
+
+  "favNumber":[
+    1,
+    2,
+    3
+  ],
+
+  favPerson:{
+    name:"abc",
+    age:1,
+  }
+
+  favFood:[
+    {
+      name:"..."
+    },
+    {
+      name:"..."
+    },
+  ]
+
+
+
+make a crund for
+//classRoom=> , name, numberofBench, hasTv
+//department=> name, hod, totalmember

@@ -1,9 +1,9 @@
 import Express, { json } from "express";
 import firstRouter from "./src/route/firstRouter.js";
 import traineesRouter from "./src/route/traineesRouter.js";
-import { connect } from "mongoose";
 import { connectToMongodb } from "./src/connect/connectToMongodb.js";
 import { studentRouter } from "./src/route/studentRouter.js";
+import { contactRouter } from "./src/route/contactRouter.js";
 
 let expressApp = Express();
 expressApp.use(json());
@@ -21,6 +21,7 @@ expressApp.use((req, res, next) => {
 expressApp.use("/bike", firstRouter);
 expressApp.use("/traineesRouter", traineesRouter);
 expressApp.use("/students", studentRouter);
+expressApp.use("/contacts", contactRouter);
 
 expressApp.listen(8000, () => {
   console.log("done");
