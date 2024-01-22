@@ -4,14 +4,48 @@ export let studentSchema = Schema({
   name: {
     type: String,
     required: [true, "Name is Required"],
+    lowercase: true, //lower
+    trim: true, // trim space in both sides
+    minLength: [3, "must be at least 3 long"],
+    maxLength: [10, "must be at least 10 long"],
+    validate: (value) => {
+      if (/^[a-zA-Z]+$/.test(value)) {
+      } else {
+        throw new Error("String only");
+      }
+    },
+  },
+  gender: {
+    type: String,
+    default: "true",
+    required: [true, "Gender is required"],
+    validate: (value) => {
+      if (value === "male" || value === "female" || value === "other") {
+      } else {
+        throw new Error("gender invalid");
+      }
+    },
   },
   password: {
     type: String,
     required: [true, "Password is Required"],
   },
+  phoneNumber: {
+    type: Number,
+    trim: true,
+    required: [true, "Number is required"],
+    validate: (value) => {
+      if (String(value).length == 10) {
+      } else {
+        throw new Error("Number Length invalid");
+      }
+    },
+  },
   roll: {
     type: Number,
     required: [true, "Roll is Required"],
+    min: [10, "roll must me > 10"],
+    max: [20, "roll must me < 20"],
   },
   isMarried: {
     type: Boolean,
@@ -20,11 +54,13 @@ export let studentSchema = Schema({
   spouseName: {
     type: String,
     required: [true, "spouse is Required"],
+    uppercase: true, // uppercase
   },
   email: {
+    // [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$
     type: String,
     required: [true, "email is Required"],
-    unique: true,
+    unique: true, // unique
   },
   dob: {
     type: Date,
