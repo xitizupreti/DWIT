@@ -4,6 +4,8 @@ import traineesRouter from "./src/route/traineesRouter.js";
 import { connectToMongodb } from "./src/connect/connectToMongodb.js";
 import { studentRouter } from "./src/route/studentRouter.js";
 import { contactRouter } from "./src/route/contactRouter.js";
+import Jwt from "jsonwebtoken";
+import { port, token } from "./constan.js";
 
 let expressApp = Express();
 expressApp.use(json());
@@ -23,6 +25,25 @@ expressApp.use("/traineesRouter", traineesRouter);
 expressApp.use("/students", studentRouter);
 expressApp.use("/contacts", contactRouter);
 
-expressApp.listen(8000, () => {
+expressApp.listen(port, () => {
   console.log("done");
 });
+
+//generate token
+// let infoObj = {
+//   _id: "123",
+// };
+// let secretKey = "dw11";
+// let expiryinfo = {
+//   expiresIn: "365d",
+// };
+// let token = Jwt.sign(infoObj, secretKey, expiryinfo);
+// console.log(token);
+
+//validate token
+try {
+  let inObj = Jwt.verify(token, "dw11");
+  console.log(inObj);
+} catch (error) {
+  console.log(error.message);
+}

@@ -18,8 +18,13 @@ export let createContact = async (req, res, next) => {
 };
 
 export let readAllContact = async (req, res, next) => {
+  let limit = req.query.limit;
+  let page = req.query.page;
   try {
-    let result = await Contact.find({});
+    let result = await Contact.find({})
+      .select("fullName -_id")
+      .skip((page - 1) * limit)
+      .limit(limit);
     res.json({
       success: true,
       message: "Contact get successfully",

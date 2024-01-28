@@ -29,6 +29,14 @@ export let studentSchema = Schema({
   password: {
     type: String,
     required: [true, "Password is Required"],
+    validate: (value) => {
+      if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,15}$/.test(value)) {
+      } else {
+        throw new Error(
+          "password must have 1 number, one lower case, one uppercase , one symbol, min 8 character, max 15 character"
+        );
+      }
+    },
   },
   phoneNumber: {
     type: Number,
@@ -57,10 +65,16 @@ export let studentSchema = Schema({
     uppercase: true, // uppercase
   },
   email: {
-    // [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$
+    //
     type: String,
     required: [true, "email is Required"],
     unique: true, // unique
+    validate: (value) => {
+      if (/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(value)) {
+      } else {
+        throw new Error("invalid email");
+      }
+    },
   },
   dob: {
     type: Date,

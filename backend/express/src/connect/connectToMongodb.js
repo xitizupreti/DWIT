@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
+import { MONGO_URL } from "../../constan.js";
 
 export let connectToMongodb = () => {
-  mongoose.connect("mongodb://0.0.0.0:27017/dw11");
+  mongoose.connect(MONGO_URL);
 };

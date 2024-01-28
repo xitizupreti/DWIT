@@ -19,7 +19,11 @@ export let createStudent = async (req, res, next) => {
 
 export let readStudent = async (req, res, next) => {
   try {
-    let result = await Student.find({});
+    let result = await Student.find({
+      // name: "xitiz",
+      // roll: { $in: [20, 25, 30] },
+    }).select("name gender -_id");
+    //gt, gte>= , lt, lte ,ne
     res.json({
       success: true,
       message: "student get successfully",
