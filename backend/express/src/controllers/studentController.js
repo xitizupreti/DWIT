@@ -1,9 +1,25 @@
 import { Student } from "../schema/model.js";
+import bcrypt from "bcrypt";
+import { sendEmail } from "../utils/sendMail.js";
 
 export let createStudent = async (req, res, next) => {
   let data = req.body;
+  let pw = data.password;
+
+  let hashPassword = await bcrypt.hash(pw, 10);
+  // console.log(hashPassword);
+  data.password = hashPassword;
   try {
     let result = await Student.create(data);
+    // sendEmail({
+    //   to: [data.email],
+    //   subject: `i hate you ${i}`,
+    //   html: `
+    //       <div>
+    //       <p>You have successfully registered in our system.</p>
+    //       </div>
+    //       `,
+    // });
     res.json({
       success: true,
       message: "student created successfully",
@@ -22,7 +38,7 @@ export let readStudent = async (req, res, next) => {
     let result = await Student.find({
       // name: "xitiz",
       // roll: { $in: [20, 25, 30] },
-    }).select("name gender -_id");
+    }).select("name gender password -_id");
     //gt, gte>= , lt, lte ,ne
     res.json({
       success: true,

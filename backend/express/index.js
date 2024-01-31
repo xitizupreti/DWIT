@@ -6,6 +6,7 @@ import { studentRouter } from "./src/route/studentRouter.js";
 import { contactRouter } from "./src/route/contactRouter.js";
 import Jwt from "jsonwebtoken";
 import { port, token } from "./constan.js";
+import { productRouter } from "./src/route/productRouter.js";
 
 let expressApp = Express();
 expressApp.use(json());
@@ -24,6 +25,7 @@ expressApp.use("/bike", firstRouter);
 expressApp.use("/traineesRouter", traineesRouter);
 expressApp.use("/students", studentRouter);
 expressApp.use("/contacts", contactRouter);
+expressApp.use("/products", productRouter);
 
 expressApp.listen(port, () => {
   console.log("done");
@@ -33,7 +35,6 @@ expressApp.listen(port, () => {
 // let infoObj = {
 //   _id: "123",
 // };
-// let secretKey = "dw11";
 // let expiryinfo = {
 //   expiresIn: "365d",
 // };
@@ -41,9 +42,9 @@ expressApp.listen(port, () => {
 // console.log(token);
 
 //validate token
-try {
-  let inObj = Jwt.verify(token, "dw11");
-  console.log(inObj);
-} catch (error) {
-  console.log(error.message);
-}
+// try {
+//   let inObj = Jwt.verify(token, "dw11"); //env
+//   console.log(inObj);
+// } catch (error) {
+//   console.log(error.message);
+// }

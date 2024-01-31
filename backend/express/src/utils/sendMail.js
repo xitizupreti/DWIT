@@ -1,8 +1,20 @@
-import nodemailer from "nodemailer";
-// the main thing in this file is trasporterInfo and mailInfo
-//neglet other part
+// for (let i = 0; i <= 30; i++) {
+//   sendEmail({
+//     to: ["Pranitakarki200@gmail.com"],
+//     subject: `i hate you ${i}`,
+//     html: `
+//       <div>
+//       <p>You have successfully registered in our system.</p>
+//       </div>
+//       `,
+//   });
+// }
 
-//transporterInof gives form information while mailInof gives to info
+import nodemailer from "nodemailer";
+// the main thing in this file is transporterInfo and mailInfo
+//neglect other part
+
+//transporterInfo gives form information while mailInfo gives to info
 let transporterInfo = {
   // host: emailHost,
   host: "smtp.gmail.com",
@@ -19,7 +31,7 @@ let transporterInfo = {
     // to send email form server first you have to =>
     //use 2-step verification and generate app password
     //instead of using your password use app password of gmail
-    //for this go to the => manage your account => security setting and=>enable 2-step verifiction =>crete app pssword (select other option)
+    //for this go to the => manage your account => security setting and=>enable 2-step verification =>create app password (select other option)
   },
 };
 
@@ -33,6 +45,7 @@ export let sendEmail = async (mailInfo) => {
 };
 
 // How to call mail
+
 // await sendMail({
 // from: '"Unique" <uniquekc425@gmail.com>',
 //   to: ["abc@gmail.com", "nitanthapa425@gmail.com"],
@@ -65,15 +78,4 @@ export let sendEmail = async (mailInfo) => {
 // } catch (error) {}
 
 // note from : is only  use to show the from information (ie not used to point the sender email sender email is point by the auth part)
-
-// point to note
-
 //   it is recommend to use  backtick
-
-// login
-//email
-//password => app password
-
-// to
-// subject
-//body
