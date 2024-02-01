@@ -46,7 +46,6 @@ export let createWebUser = async (req, res, next) => {
     });
   }
 };
-
 export const verifyEmail = async (req, res, next) => {
   try {
     let token = req.headers.authorization.split(" ")[1];
@@ -73,7 +72,6 @@ export const verifyEmail = async (req, res, next) => {
     });
   }
 };
-
 export const loginUser = async (req, res, next) => {
   try {
     let email = req.body.email;
@@ -114,7 +112,6 @@ export const loginUser = async (req, res, next) => {
     });
   }
 };
-
 export const myProfile = async (req, res, next) => {
   try {
     let _id = req._id;
@@ -131,7 +128,6 @@ export const myProfile = async (req, res, next) => {
     });
   }
 };
-
 export const updateProfile = async (req, res, next) => {
   try {
     let _id = req._id;
@@ -151,7 +147,6 @@ export const updateProfile = async (req, res, next) => {
     });
   }
 };
-
 export const updatePassword = async (req, res, next) => {
   try {
     let _id = req._id;
@@ -183,7 +178,6 @@ export const updatePassword = async (req, res, next) => {
     });
   }
 };
-
 export let readWebUser = async (req, res, next) => {
   try {
     let result = await WebUser.find({});
@@ -199,7 +193,6 @@ export let readWebUser = async (req, res, next) => {
     });
   }
 };
-
 export let readWebUserById = async (req, res, next) => {
   let id = req.params.id;
   try {
@@ -216,7 +209,6 @@ export let readWebUserById = async (req, res, next) => {
     });
   }
 };
-
 export let updateSpecificWebUser = async (req, res, next) => {
   let id = req.params.id;
   let data = req.body;
@@ -236,7 +228,6 @@ export let updateSpecificWebUser = async (req, res, next) => {
     });
   }
 };
-
 export let deleteWebUser = async (req, res, next) => {
   let id = req.params.id;
   try {
@@ -253,6 +244,70 @@ export let deleteWebUser = async (req, res, next) => {
         data: result,
       });
     }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+export let forgotPassword = async (req, res, next) => {
+  try {
+    let email = req.body.email;
+    let result = await WebUser.findOne({ email: email });
+
+    if (!result) {
+      res.status(400).json({
+        success: false,
+        message: "email does not exist",
+      });
+    } else {
+      let infoObj = {
+        _id: result._id,
+      };
+      let expiryInfo = {
+        expiresIn: "1d",
+      };
+      let token = Jwt.sign(infoObj, secretKey, expiryInfo);
+      sendEmail({
+        from: "`XiTiZ`<upreti.kshitiz.ku@gmail.com>",
+        to: email,
+        subject: `Reset Password`,
+        html: `
+          <div>
+          <h1>Reset your password</h1>
+          <a href="http:localhost:3000/verify-email?token=${token}">Click Here</a>
+          <p>http:localhost:3000/verify-email?token=${token}</p>
+          </div>
+          `,
+      });
+      res.status(200).json({
+        success: true,
+        message: "Link sent successfully",
+        data: result,
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+export let resetPassword = async (req, res, next) => {
+  try {
+    let hashPassword = await bcrypt.hash(req.body.password, 10);
+    let result = await WebUser.findByIdAndUpdate(
+      req._id,
+      { password: hashPassword },
+      { new: true }
+    );
+
+    res.status(201).json({
+      success: true,
+      message: "password reset successfully",
+      data: result,
+    });
   } catch (error) {
     res.status(400).json({
       success: false,

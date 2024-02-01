@@ -40,6 +40,19 @@
 8)Delete User
 9)Update specific user
 10)Forgot & Reset Password
+ a)forgot pw
+  i)pass email from postman
+  ii)check email exist
+  iii)send email with link(frontend link with token)
+  iv)send response
+ b)reset pw
+  i)pass token from postman
+  ii)pass password through postman
+  iii)pass through isAuthenticated
+  iv)get _id
+  v)hash password
+  vi)update _id
+  vii)send response
 
 # success code:
  2xx

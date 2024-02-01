@@ -2,10 +2,12 @@ import { Router } from "express";
 import {
   createWebUser,
   deleteWebUser,
+  forgotPassword,
   loginUser,
   myProfile,
   readWebUser,
   readWebUserById,
+  resetPassword,
   updatePassword,
   updateProfile,
   updateSpecificWebUser,
@@ -20,6 +22,8 @@ webUserRouter.route("/login").post(loginUser);
 webUserRouter.route("/my-profile").get(isAuthenticated, myProfile);
 webUserRouter.route("/update-profile").patch(isAuthenticated, updateProfile);
 webUserRouter.route("/update-password").patch(isAuthenticated, updatePassword);
+webUserRouter.route("/forgot-password").post(forgotPassword);
+webUserRouter.route("/reset-password").patch(isAuthenticated, resetPassword);
 webUserRouter
   .route("/:id")
   .get(readWebUserById)
