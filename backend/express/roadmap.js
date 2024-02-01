@@ -53,6 +53,11 @@
   v)hash password
   vi)update _id
   vii)send response
+11)Authorization(roles)
+ a)pass token from postman
+ b)isAuthentication
+ c)_id
+ d)read role details
 
 # success code:
  2xx

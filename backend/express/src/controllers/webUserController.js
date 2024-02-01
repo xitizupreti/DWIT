@@ -91,7 +91,8 @@ export const loginUser = async (req, res, next) => {
           res.status(200).json({
             success: true,
             message: "User Login Successfully",
-            data: token,
+            data: user,
+            token: token,
           });
         } else {
           let error = new Error("Credentials doesn't match");
