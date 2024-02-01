@@ -7,6 +7,7 @@ import { contactRouter } from "./src/route/contactRouter.js";
 import Jwt from "jsonwebtoken";
 import { port, token } from "./constan.js";
 import { productRouter } from "./src/route/productRouter.js";
+import { webUserRouter } from "./src/route/webUserRouter.js";
 
 let expressApp = Express();
 expressApp.use(json());
@@ -26,6 +27,7 @@ expressApp.use("/traineesRouter", traineesRouter);
 expressApp.use("/students", studentRouter);
 expressApp.use("/contacts", contactRouter);
 expressApp.use("/products", productRouter);
+expressApp.use("/webUsers", webUserRouter);
 
 expressApp.listen(port, () => {
   console.log("done");

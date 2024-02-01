@@ -4,9 +4,7 @@ import { sendEmail } from "../utils/sendMail.js";
 
 export let createStudent = async (req, res, next) => {
   let data = req.body;
-  let pw = data.password;
-
-  let hashPassword = await bcrypt.hash(pw, 10);
+  let hashPassword = await bcrypt.hash(data.password, 10);
   // console.log(hashPassword);
   data.password = hashPassword;
   try {
