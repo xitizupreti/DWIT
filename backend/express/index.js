@@ -17,10 +17,10 @@ expressApp.get("/", function (req, res) {
 });
 
 //Application MiddleWare
-expressApp.use((req, res, next) => {
-  console.log("Application Middleware");
-  next();
-});
+// expressApp.use((req, res, next) => {
+//   console.log("Application Middleware");
+//   next();
+// });
 //Router MiddleWare
 expressApp.use("/bike", firstRouter);
 expressApp.use("/traineesRouter", traineesRouter);

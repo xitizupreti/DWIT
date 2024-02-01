@@ -29,11 +29,27 @@
  e)find details using _id
  f)pass _id to another middleware
 4)My Profile Update
+ a)pass token through isAuthenticated
+ b)get _id and update profile(del mail&pw)
 5)Update Password
-6)Forgot & Reset Password
-7)Delete User
-8)Read All user
-9)Read Specific user
+ a)pass token through isAuthenticated
+ b)pass _id and get data from body(old&new password)
+ c)hash new password and update database
+6)Read All user
+7)Read Specific user
+8)Delete User
+9)Update specific user
+10)Forgot & Reset Password
 
+# success code:
+ 2xx
+ read, delete = 20
+ create, update = 201
 
+# error code:
+ 400
+ 401 = token not valid, credential not match
+ 403 = token is valid but not authorized
+ 404 = api not found
+ 409 = conflict like duplicate email
 */

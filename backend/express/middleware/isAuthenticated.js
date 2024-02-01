@@ -8,7 +8,7 @@ export let isAuthenticated = async (req, res, next) => {
     req._id = user._id;
     next();
   } catch (error) {
-    res.json({
+    res.status(401).json({
       success: false,
       message: "Token not valid",
     });

@@ -6,7 +6,9 @@ import {
   myProfile,
   readWebUser,
   readWebUserById,
-  updateWebUser,
+  updatePassword,
+  updateProfile,
+  updateSpecificWebUser,
   verifyEmail,
 } from "../controllers/webUserController.js";
 import { isAuthenticated } from "../../middleware/isAuthenticated.js";
@@ -16,3 +18,10 @@ webUserRouter.route("/").post(createWebUser).get(readWebUser);
 webUserRouter.route("/verify-email").patch(verifyEmail);
 webUserRouter.route("/login").post(loginUser);
 webUserRouter.route("/my-profile").get(isAuthenticated, myProfile);
+webUserRouter.route("/update-profile").patch(isAuthenticated, updateProfile);
+webUserRouter.route("/update-password").patch(isAuthenticated, updatePassword);
+webUserRouter
+  .route("/:id")
+  .get(readWebUserById)
+  .patch(updateSpecificWebUser)
+  .delete(deleteWebUser);
