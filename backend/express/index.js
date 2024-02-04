@@ -8,6 +8,7 @@ import Jwt from "jsonwebtoken";
 import { port, token } from "./constan.js";
 import { productRouter } from "./src/route/productRouter.js";
 import { webUserRouter } from "./src/route/webUserRouter.js";
+import { fileRouter } from "./src/route/fileRouter.js";
 
 let expressApp = Express();
 expressApp.use(json());
@@ -28,6 +29,7 @@ expressApp.use("/students", studentRouter);
 expressApp.use("/contacts", contactRouter);
 expressApp.use("/products", productRouter);
 expressApp.use("/webUsers", webUserRouter);
+expressApp.use("/files", fileRouter);
 
 expressApp.listen(port, () => {
   console.log("done");
