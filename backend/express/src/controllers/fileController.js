@@ -15,9 +15,14 @@ export let uploadSingleFile = (req, res, next) => {
 };
 export let uploadMultipleFile = (req, res, next) => {
   try {
+    // console.log(req.files);
+    let link = req.files.map((value, i) => {
+      return `http://localhost:8000/${value.filename}`;
+    });
     res.json({
       success: true,
       message: "Multiple File uploaded successfully.",
+      link: link,
     });
   } catch (error) {
     res.json({

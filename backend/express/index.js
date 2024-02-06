@@ -1,4 +1,4 @@
-import Express, { json } from "express";
+import express, { json } from "express";
 import firstRouter from "./src/route/firstRouter.js";
 import traineesRouter from "./src/route/traineesRouter.js";
 import { connectToMongodb } from "./src/connect/connectToMongodb.js";
@@ -10,8 +10,9 @@ import { productRouter } from "./src/route/productRouter.js";
 import { webUserRouter } from "./src/route/webUserRouter.js";
 import { fileRouter } from "./src/route/fileRouter.js";
 
-let expressApp = Express();
+let expressApp = express();
 expressApp.use(json());
+expressApp.use(express.static("./public"));
 connectToMongodb();
 expressApp.get("/", function (req, res) {
   res.send("Test on local");
